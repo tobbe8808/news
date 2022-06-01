@@ -4,11 +4,11 @@
 
 
 
-<h1>post</h1>
+<h1>Post</h1>
 
 <ul>
     {% for post in object_list %}
-        <li><a href="{% url 'article-detail' post.pk %}">{{post.title }}</a> - {{ post.title }} - {{ post.author.first_name }}
+        <li><a href="{% url 'article-detail' post.pk %}">{{post.title }}</a> - {{ post.title }} - <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a> - {{ post.author.first_name }}
             {{post.author.last_name }} - {{ post.post_date }} <small>
 
         {% if user.is_authenticated %}
@@ -17,7 +17,7 @@
             <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
         {% endif %}
 
-            </small> <br/> {{ post.body|slice:":200" }}</li>
+            </small> <br/> {{ post.body|slice:":200"|safe }}</li>
     {% endfor %}
     </ul>
 
