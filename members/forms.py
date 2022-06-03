@@ -8,7 +8,6 @@ class ProfilePageForm(forms.ModelForm):
         model = Profile
         fields = ('bio', 'profile_pic', 'website_url', 'facebook_url', 'twitter_url', 'instagram_url', 'pinterest_url')
 
-
         widgets = {
             'bio': forms.Textarea(attrs={'class': 'form-control'}),
             'website_url': forms.TextInput(attrs={'class': 'form-control', }),
