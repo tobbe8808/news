@@ -15,9 +15,10 @@
 
         {% if user.is_authenticated %}
             {% if user.id == post.author.id %}
-                - <a href="{% url 'update_post' post.pk %}">(Edit)</a>
+                <a href="{% url 'update_post' post.pk %}" class="btn btn-primary btn-sm">Edit</a>
 
-                <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
+                <a href="{% url 'delete_post' post.pk %}" class="btn btn-danger btn-sm">Delete</a>
+
             {% endif %}
         {% endif %}
     </small><br/>
@@ -77,7 +78,7 @@
     <a href="{% url 'show_profile_page' post.author.profile.id %}">Profile Page</a>
 
     {% if post.author.profile.website_url %}
-        | <a href="{{ post.author.profile.website_url }}">  Website</a>
+        | <a href="{{ post.author.profile.website_url }}"> Website</a>
     {% endif %}
 
 
@@ -136,7 +137,7 @@
 
 
     {% endfor %}
-        <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+
 {% endif %}
 <br/>
 
