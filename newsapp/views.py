@@ -6,6 +6,7 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
 
+
 def LikeView(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     liked = False
@@ -23,6 +24,7 @@ class HomeView(ListView):
     template_name = 'home.html'
     cats = Category.objects.all()
     ordering = ['-post_date']
+    paginate_by = 5
 
     def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
@@ -37,6 +39,7 @@ def CategoryListView(request):
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
     return render(request, 'categories.html', {'cats':cats.replace('-', ' ').title(), 'category_posts':category_posts})
+
 
 
 class ArticleDetailView(DetailView):
