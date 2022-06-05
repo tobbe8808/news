@@ -4,6 +4,7 @@ from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator
 
 
 
@@ -36,10 +37,14 @@ def CategoryListView(request):
     cat_menu_list = Category.objects.all()
     return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
 
-def CategoryView(request, cats):
-    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
-    return render(request, 'categories.html', {'cats':cats.replace('-', ' ').title(), 'category_posts':category_posts})
 
+def CategoryView(request, cats):
+    cat_menu_list = Post.objects.filter(category=cats.replace('-', ' '))
+    paginator = Paginator(cat_menu_list, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'categories.html', {'page_obj': page_obj, 'cats': cats.replace('-', ' ').title()})
 
 
 class ArticleDetailView(DetailView):
