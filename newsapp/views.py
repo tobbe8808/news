@@ -79,11 +79,6 @@ class AddCommentView(CreateView):
 
     success_url = reverse_lazy('home')
 
-class AddCategoryView(CreateView):
-    model = Category
-    template_name = 'add_category.html'
-    fields = '__all__'
-
 class UpdatePostView(UpdateView):
     model = Post
     form_class = EditForm
