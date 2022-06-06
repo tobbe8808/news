@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 {% extends 'base.html' %}
 {% block title %}Register{% endblock %}
 {% block content %}
@@ -11,6 +13,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-secondary">Register</button>
+    </form>
 </div>
 
 
