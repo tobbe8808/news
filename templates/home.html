@@ -16,7 +16,7 @@
                         {% if post.header_image %}
                     <img id="uploadimg" src="{{ post.header_image.url }}">
                 {% endif %}
-                    <p class="card-text">{{ post.body|safe|slice:":200" }}</p>
+                <div class="card-text">{{ post.body|safe|slice:":200" }}</div>
                     <a href="{% url 'article-detail' post.pk %}" class="btn btn-info">Read More</a>
                 {% if user.is_authenticated %}
                     {% if user.id == post.author.id %}
