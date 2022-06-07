@@ -13,7 +13,7 @@ from django.core.paginator import Paginator
 
 
 def LikeView(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_date'))
+    post = get_object_or_404(Post, id=pk)
     liked = False
     if post.likes.filter(id=request.user.id).exists():
         post.likes.remove(request.user)
@@ -30,7 +30,7 @@ class HomeView(ListView):
     template_name = 'home.html'
     cats = Category.objects.all()
     ordering = ['-post_date']
-    paginate_by = 5
+    paginate_by = 3
 
     def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
@@ -48,15 +48,13 @@ def CategoryListView(request):
 def CategoryView(request, cats):
     cat_menu_list = Post.objects.filter(
         category=cats.replace(
-            '-', ' ')).order_by('-id')
-    paginator = Paginator(cat_menu_list, 5)
+            '-', ' ')).order_by('-id').distinct()
+    paginator = Paginator(cat_menu_list, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(
-        request, 'categories.html', {
-            'page_obj': page_obj, 'cats': cats.replace(
-                '-', ' ').title()})
+    return render(request, 'categories.html', {'cats': cats.replace(
+        '-', ' ').title(), 'cat_menu_list': cat_menu_list, 'page_obj': page_obj})
 
 
 class ArticleDetailView(DetailView):

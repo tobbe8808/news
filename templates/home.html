@@ -14,7 +14,7 @@
                     <p class="card-text text-dark h6">{{ post.author.first_name }} {{post.author.last_name }} | {{ post.post_date }}
                         <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a></p>
                         {% if post.header_image %}
-                    <img id="uploadimg" src="{{ post.header_image.url }}">
+                    <img src="{{ post.header_image.url }}" alt="upload" width="550" height="550">
                 {% endif %}
                 <div class="card-text">{{ post.body|safe|slice:":200" }}</div>
                     <a href="{% url 'article-detail' post.pk %}" class="btn btn-info">Read More</a>

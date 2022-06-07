@@ -2,17 +2,21 @@
 
 {% block content %}
 
+
     <h1 class="headerh1">{{ cats }}</h1>
     <div class="container">
         <div class="row">
             <!-- Blog Entries Column -->
             <div class="col-md-8 mt-3 left">
-                {% for post in page_obj %}
+                {% for post in cat_menu_list %}
                 <div class="card mb-4">
                     <div class="card-body">
                         <h2 class="card-title"><a href="{% url 'article-detail' post.pk %}" class="text-dark">{{post.title }}</a></h2>
                         <p class="card-text text-dark h6">{{ post.author.first_name }} {{post.author.last_name }} | {{ post.post_date }}
                             <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a></p>
+                            {% if post.header_image %}
+                            <img src="{{ post.header_image.url }}" alt="upload" width="550" height="550">
+                {% endif %}
                         <div class="card-text">{{ post.body|safe|slice:":200" }}</div>
                         <a href="{% url 'article-detail' post.pk %}" class="btn btn-info">Read More</a>
                     {% if user.is_authenticated %}
