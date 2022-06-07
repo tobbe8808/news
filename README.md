@@ -79,7 +79,7 @@ Tested so the website had good scores and it did.
 
 # User stories
 
-![user stories](../news/static/newsapp/images/1.PNG)<br>
+![user stories](static/newsapp/images/1.PNG)<br>
 
 1. As a user i want to be able to login.
 2. Be able to do blog posts
@@ -102,6 +102,12 @@ Upload to Github pages<br>
 4. I scrolled down to GitHub Pages and clicked Check it out here.<br>
 5. Then i choose the main Branch and root and then save.<br>
 6. It's now uploaded to Github pages.<br>
+
+### Heroku
+
+1. set  DEBUG = False, Add X_FRAME_OPTIONS = 'SAMEORIGIN',Do this In you're settings.py
+2. From Heroku/settings/Reveal Config Vars remove DISABLE_COLLECTSTATIC = 1.
+3. After doing that we go to Heroku Deploy tab scroll down choose Main branch and Deploy Branch
 
 # Bugs
 
