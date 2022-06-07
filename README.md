@@ -1,21 +1,21 @@
 # NewsBlog
 
 ## Technologies
-HTML5
-CSS
-jQuery
-JavaScript
-Python3
-MVC Framework
-Django
-Bootstrap
-Gitpod
-Github
-Heroku
-Heroku Postgres
-Code Institute template
-Agile "Githubs"
-Code Validators
+HTML5<br>
+CSS<br>
+jQuery<br>
+JavaScript<br>
+Python3<br>
+MVC Framework<br>
+Django<br>
+Bootstrap<br>
+Gitpod<br>
+Github<br>
+Heroku<br>
+Heroku Postgres<br>
+Code Institute template<br>
+Agile "Githubs"<br>
+Code Validators<br>
 
 ## Testing
 
@@ -107,6 +107,7 @@ Upload to Github pages<br>
 
 1. set  DEBUG = False, Add X_FRAME_OPTIONS = 'SAMEORIGIN',Do this In you're settings.py
 2. From Heroku/settings/Reveal Config Vars remove DISABLE_COLLECTSTATIC = 1.
+4. dont forget to do pip freeze > requirements.txt or you will get static errors.
 3. After doing that we go to Heroku Deploy tab scroll down choose Main branch and Deploy Branch
 
 # Bugs
