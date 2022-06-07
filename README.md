@@ -114,6 +114,9 @@ Upload to Github pages<br>
 
 1. Had some problems with to long lines of code in python and to fix them.
 2. Had problems to see post in categories even tho code was right so i had to remove posts and add new ones and it workt
+3. Big bug that I couldn't fix and didn't have time cause of the deadline. Ckeditor worked great when I was building the website with no errors.
+But at deployment and writing this README file I noticed it wasn't showing up on the page. I tried to follow the documentation, but it just doesn't 
+Wanna work on Heroku.
 
 
 
